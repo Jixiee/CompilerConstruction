@@ -4,6 +4,7 @@ Welcome to the Compiler Design repository! This repository contains the source c
 ## Table of Contents
 - Introduction
 - Features
+- Codes
 - Installation
 - Architecture
 - Contributing
@@ -19,6 +20,9 @@ This compiler is built to facilitate the translation of high-level programming l
 - `Intermediate Code Generation:` Creating an intermediate representation of the source code.
 - `Code Optimization:` Enhancing the efficiency of the generated code.
 - `Code Generation:` Producing target machine code or an equivalent output.
+
+## Codes
+- Infix To Postfix 
 
 ## Clone the repository
 git clone https://github.com/Jixiee/CompilerConstruction.git
