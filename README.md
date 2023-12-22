@@ -22,7 +22,7 @@ This compiler is built to facilitate the translation of high-level programming l
 - `Code Generation:` Producing target machine code or an equivalent output.
 
 ## Codes
-- [Infix To Postfix](#Infix_To_Postfix.cpp)
+- [Infix To Postfix](#Codes/Infix_To_Postfix.cpp)
 
 ## Clone the repository
 git clone https://github.com/Jixiee/CompilerConstruction.git
