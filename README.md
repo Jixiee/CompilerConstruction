@@ -1,5 +1,5 @@
 # Compiler Construction Repository 
-Welcome to the Compiler Design repository! This repository contains the source code and documentation for a compiler developed as part of a compiler design project.
+Welcome to the Compiler Design Lab File repository! This repository contains the source code and documentation for a compiler construction lab record.
 
 ## Table of Contents
 - Introduction
