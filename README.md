@@ -5,7 +5,6 @@ Welcome to the Compiler Design Lab File repository! This repository contains the
 - Introduction
 - Features
 - Codes
-- Installation
 - Architecture
 - Contributing
 - License
