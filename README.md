@@ -23,6 +23,7 @@ This compiler is built to facilitate the translation of high-level programming l
 ## Codes
 - [Infix To Postfix](Codes/Infix_To_Postfix.cpp)
 - [File_Handling](Codes/File_Handling.cpp)
+- [Tokenization]
 
 ## Clone the repository
 git clone https://github.com/Jixiee/CompilerConstruction.git
