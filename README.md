@@ -1,5 +1,5 @@
 # Compiler Construction Repository 
-Welcome to the Compiler Design Lab File repository! This repository contains the source code and documentation for a compiler construction lab record.
+Welcome to the Compiler Design Lab File repository! This repository contains the code snippets for a compiler construction lab record.
 
 ## Table of Contents
 - Introduction
@@ -10,9 +10,9 @@ Welcome to the Compiler Design Lab File repository! This repository contains the
 - License
 
 ## Introduction
-This compiler is built to facilitate the translation of high-level programming language(C++) code into machine code or intermediate code. The goal is to provide an efficient and reliable tool for developers to compile their code and produce executable programs.
+Codes for CC lab record
 
-## Features
+## Features (of a compiler)
 - `Lexical Analysis:` Tokenization of source code.
 - `Syntax Analysis:` Parsing and validation of the code structure.
 - `Semantic Analysis:` Ensuring the correctness of the code in terms of its meaning.
