@@ -24,6 +24,7 @@ Codes for CC lab record
 - [Infix To Postfix](Codes/Infix_To_Postfix.cpp)
 - [File_Handling](Codes/File_Handling.cpp)
 - [Tokenization](Codes/Tokenization.cpp)
+- [Categorization]
 
 ## Clone the repository
 git clone https://github.com/Jixiee/CompilerConstruction.git
