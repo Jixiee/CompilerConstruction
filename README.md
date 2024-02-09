@@ -25,6 +25,7 @@ Codes for CC lab record
 - [File_Handling](Codes/File_Handling.cpp)
 - [Tokenization](Codes/Tokenization.cpp)
 - [Categorization]
+- [Remove Left Recursion]
 
 ## Clone the repository
 git clone https://github.com/Jixiee/CompilerConstruction.git
