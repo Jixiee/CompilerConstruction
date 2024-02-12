@@ -24,7 +24,7 @@ Codes for CC lab record
 - [Infix To Postfix](Codes/Infix_To_Postfix.cpp)
 - [File_Handling](Codes/File_Handling.cpp)
 - [Tokenization](Codes/Tokenization.cpp)
-- [Categorization]
+- [Categorization](Codes/Categorization.cpp)
 - [Remove Left Recursion](LeftRecursion.cpp)
 
 ## Clone the repository
