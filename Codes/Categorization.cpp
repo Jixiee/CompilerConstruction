@@ -2,96 +2,92 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <sstream>
-#include <iomanip>
-#include <cctype>
-#include <algorithm>
-enum TokenType {
-    Identifier,
-    Number,
-    Operator,
-    String,
-    Newline,
-    Indent,
-    Dedent,
-    Comment,
-    Other
-};
-struct Token {
-    std::string value;
-    TokenType type;
-};
-std::vector<Token> tokenize(const std::string& code) {
-    std::istringstream iss(code);
-    std::string line;
-    std::vector<Token> tokens;
-    while (std::getline(iss, line)) {
-        std::istringstream line_stream(line);
-        std::string token;
-        while (line_stream >> token) {
-            bool is_number = true;
-            for (char c : token) {
-                if (!std::isdigit(c)) {
-                    is_number = false;
-                    break;
-                }
+#include <unordered_set>
+
+using namespace std;
+
+bool isKeyword(const string& word) {
+    static const unordered_set<string> keywords = {
+        "int", "double", "float", "char", "string", "if", "else", "for", "while", "do", "return", "void"
+    };
+    return keywords.find(word) != keywords.end();
+}
+bool isOperator(char c) {
+    static const unordered_set<char> operators = {'+', '-', '*', '/', '=', '<', '>', '&', '|', '!', '%', '^', '~'};
+    return operators.find(c) != operators.end();
+}
+bool isValidIdentifierChar(char c) {
+    return isalnum(c) || c == '_';
+}
+vector<string> categorizeCodeBlock(const string& code) {
+    vector<string> categorized;
+    string currentToken;
+    string tempCode = code; 
+    for (char c : tempCode) {
+        if (isspace(c)) {
+            if (!currentToken.empty()) {
+                categorized.push_back(currentToken);
+                currentToken.clear();
             }
-            if (is_number) {
-                tokens.push_back({token, Number});
+        } else if (isOperator(c)) {
+            if (!currentToken.empty()) {
+                categorized.push_back(currentToken);
+                currentToken.clear();
             }
-            else if (token.front() == '"' && token.back() == '"') {
-                tokens.push_back({token, String});
+            currentToken.push_back(c);
+            categorized.push_back(currentToken);
+            currentToken.clear();
+        } else if (isValidIdentifierChar(c)) {
+            currentToken.push_back(c);
+        } else if (c == '"') {
+            if (!currentToken.empty()) {
+                categorized.push_back(currentToken);
+                currentToken.clear();
             }
-            else if (token == "+" || token == "-" || token == "*" || token == "/" || token == "=") {
-                tokens.push_back({token, Operator});
-            }
-            else if (token.front() == '#') {
-                tokens.push_back({token, Comment});
-            }
-            else if (std::isalpha(token.front())) {
-                tokens.push_back({token, Identifier});
-            }
-            else if (token == "\n") {
-                tokens.push_back({token, Newline});
-            }
-            else {
-                tokens.push_back({token, Other});
+            currentToken.push_back('"');
+            size_t pos = tempCode.find('"', tempCode.find('"') + 1);
+            if (pos != string::npos) {
+                currentToken += tempCode.substr(tempCode.find('"'), pos - tempCode.find('"') + 1);
+                categorized.push_back(currentToken);
+                currentToken.clear();
+                tempCode.erase(0, pos + 1); 
+            } else {
             }
         }
-        tokens.push_back({"\n", Newline}); 
     }
-    return tokens;
-}
-std::string tokenTypeToString(TokenType type) {
-    switch (type) {
-        case Identifier:
-            return "Identifier";
-        case Number:
-            return "Number";
-        case Operator:
-            return "Operator";
-        case String:
-            return "String";
-        case Newline:
-            return "Newline";
-        case Indent:
-            return "Indent";
-        case Dedent:
-            return "Dedent";
-        case Comment:
-            return "Comment";
-        default:
-            return "Other";
+    if (!currentToken.empty()) {
+        categorized.push_back(currentToken);
     }
+    return categorized;
 }
 int main() {
-    std::cout << "Enter C++ code (press Ctrl+D to finish):\n";
-    std::string code;
-    std::getline(std::cin, code);
-    std::vector<Token> tokens = tokenize(code);
-    for (const auto& token : tokens) {
-        std::cout << std::setw(10) << std::left << token.value << " : " << tokenTypeToString(token.type) << std::endl;
+    string codeBlock = "int main() {\n\tint a = 5;\n\tfloat b = 3.14;\n\tstring message = \"Hello, world!\";\n\tif (a > 0) {\n\t\tcout << message << endl;\n\t}\n\treturn 0;\n}";
+    vector<string> categorized = categorizeCodeBlock(codeBlock);
+    cout << "Identifiers:" << endl;
+    for (const string& token : categorized) {
+        if (!isKeyword(token) && !isOperator(token[0]) && token[0] != '"') {
+            cout << token << endl;
+        }
+    }
+    cout << "\nKeywords:" << endl;
+    for (const string& token : categorized) {
+        if (isKeyword(token)) {
+            cout << token << endl;
+        }
+    }
+    cout << "\nOperators:" << endl;
+    for (const string& token : categorized) {
+        if (isOperator(token[0])) {
+            cout << token << endl;
+        }
+    }
+    cout << "\nString Constants:" << endl;
+    for (const string& token : categorized) {
+        if (token[0] == '"') {
+            cout << token << endl;
+        }
     }
     return 0;
 }
+
 
