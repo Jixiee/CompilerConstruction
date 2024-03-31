@@ -27,7 +27,7 @@ Codes for CC lab record
 - [Categorization](Codes/Categorization.cpp)
 - [Remove Left Recursion](LeftRecursion.cpp)
 - [Left Factoring](Codes/Left_Factoring.cpp)
-- [First and Follow](Codes/Fisrt_Follow.cpp)
+- [First and Follow](Codes/FisrtFollow.cpp)
 ## Clone the repository
 git clone https://github.com/Jixiee/CompilerConstruction.git
 
