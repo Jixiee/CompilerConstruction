@@ -28,11 +28,9 @@ Codes for CC lab record
 - [Remove Left Recursion](LeftRecursion.cpp)
 - [Left Factoring](Codes/Left_Factoring.cpp)
 - [First and Follow](Codes/FisrtFollow.cpp)
+  
 ## Clone the repository
 git clone https://github.com/Jixiee/CompilerConstruction.git
-
-## Architecture
-To be updated soon.
 
 ## Contributing
 If you would like to contribute to the development of this compiler, please follow the guidelines in CONTRIBUTING.md.
